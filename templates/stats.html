@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistik Penggunaan</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans text-gray-800">
+
+    <div class="container mx-auto my-10 p-6 bg-white rounded-lg shadow-lg">
+        <h1 class="text-3xl font-semibold text-center text-indigo-600 mb-6">Statistik Penggunaan</h1>
+        
+        {% if stats %}
+            <div class="space-y-6">
+                {% for gejala, count in stats.items() %}
+                    <div class="bg-gray-50 p-5 rounded-lg shadow-md flex items-center">
+                        <div class="text-indigo-600 text-3xl mr-4">
+                            <i class="fas fa-chart-bar"></i>  <!-- Bisa ganti dengan ikon lain jika perlu -->
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">{{ gejala }}</h3>
+                            <p class="text-lg text-gray-600">{{ count }} kali digunakan</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-lg text-gray-700 text-center">Tidak ada data statistik.</p>
+        {% endif %}
+        
+        <div class="text-center mt-8">
+            <a href="/" class="inline-block bg-indigo-600 text-white px-6 py-2 rounded-full text-lg hover:bg-indigo-700 transition-colors duration-300">Kembali ke halaman utama</a>
+        </div>
+    </div>
+
+    <!-- Tambahkan link untuk FontAwesome Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>

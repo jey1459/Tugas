@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil Pencarian Kerusakan</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 font-sans text-gray-800">
+    <div class="container mx-auto my-10 p-5 bg-white rounded-lg shadow-lg">
+        <h1 class="text-3xl font-semibold text-center text-indigo-600 mb-6">Hasil Pencarian Kerusakan</h1>
+        
+        <div class="space-y-6">
+            {% for result in results.iterrows() %}
+                <div class="bg-gray-50 p-5 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-xl font-bold text-indigo-500">{{ result['Jenis Kerusakan'] }}</h3>
+                    <p class="text-sm text-gray-600 mt-2">{{ result['Then'] }}</p>
+                    <p class="mt-4 text-sm text-gray-700"><span class="font-semibold">Saran Perbaikan:</span> {{ result['Saran Perbaikan'] }}</p>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="text-center mt-8">
+            <a href="/" class="inline-block bg-indigo-600 text-white px-6 py-2 rounded-full text-lg hover:bg-indigo-700 transition-colors duration-300">Kembali ke halaman utama</a>
+        </div>
+    </div>
+</body>
+</html>
